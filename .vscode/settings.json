@@ -1,0 +1,13 @@
+{
+    "files.exclude": {
+        "postcss.config.js": true,
+        ".eslintrc.json": true,
+        "next-env.d.ts": true,
+        ".react-email": true,
+        "node_modules": true,
+        "debug.log": true,
+        "yarn*": true,
+        ".next": true,
+        "data": true,
+    }
+}

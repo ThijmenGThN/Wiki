@@ -1,0 +1,21 @@
+
+# ━━ Blacklist ━━
+
+*.pem
+*.tsbuildinfo
+*.log*
+.env*
+
+.DS_Store
+.react-email
+next-env.d.ts
+/data
+/out
+/build
+/.next
+/node_modules
+
+
+# ━━ Whitelist ━━
+
+!.env.sample

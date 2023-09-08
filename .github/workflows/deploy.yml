@@ -1,0 +1,27 @@
+name: Deploy
+
+on:
+  push:
+    branches: leaflet # <- Rename to a valid branch.
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: appleboy/ssh-action@master
+        with:
+          key:      ${{ secrets.SSH_KEY }} 
+          host:     ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port:     ${{ secrets.SSH_PORT }}
+          script: |
+            mkdir ~/env ~/env/${{github.event.repository.name}}
+            cd ~/env/${{github.event.repository.name}}
+
+            sudo git clone https://github.com/${{github.repository}} .
+            sudo git pull
+
+            echo '${{ secrets.APP_ENV }}' > .env
+            
+            sudo docker-compose down
+            sudo docker-compose up -d

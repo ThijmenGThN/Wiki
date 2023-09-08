@@ -1,0 +1,23 @@
+version: "3"
+services:
+
+  # ┏━ NextJS | A framework for the web.
+  app:
+    image: node:18-alpine
+    restart: unless-stopped
+    command: ["yarn", "deploy"]
+    ports: [$APP_PORT:3000]
+    depends_on: [database]
+    working_dir: /usr/app
+    volumes: [.:/usr/app]
+    profiles: ["prod"]
+    env_file: .env
+
+  # ┏━ MySQL | An SQL based database.
+  database:
+    image: postgres:15
+    restart: unless-stopped
+    ports: [$DATABASE_PORT:5432]
+    volumes: [./data:/var/lib/postgresql/data]
+    environment:
+      POSTGRES_PASSWORD: $DATABASE_PASS
