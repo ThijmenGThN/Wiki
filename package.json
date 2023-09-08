@@ -1,14 +1,13 @@
 {
   "name": "wiki",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "update": "yarn add next@latest react@latest react-dom@latest eslint-config-next@latest",
-    "deploy": "yarn && yarn build && yarn start"
+    "deploy": "yarn && npx prisma generate && npx prisma db push && yarn build && yarn start"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
@@ -23,11 +22,18 @@
     "eslint-config-next": "^13.4.19",
     "next": "^13.4.19",
     "postcss": "8.4.26",
+    "prisma": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-email": "1.9.4",
+    "react-hook-form": "^7.45.2",
     "sharp": "^0.32.4",
     "tailwindcss": "3.3.3",
     "ts-node": "^10.9.1",
     "typescript": "5.1.6"
+  },
+  "prisma": {
+    "schema": "src/prisma/schema.prisma",
+    "seed": "ts-node src/prisma/seed.ts"
   }
 }
