@@ -8,17 +8,36 @@ datasource db {
   url      = env("PRISMA_CONNECTOR")
 }
 
-model Category {
-  name String @id
-
-  items Item[]
+enum Roles {
+  USER
+  ADMIN
 }
 
-model Item {
-  name String @id
+model User {
+  id String @id @default(cuid())
 
-  content String
+  name  String
+  email String @unique
+  role  Roles  @default(USER)
 
-  categoryName String
-  category     Category @relation(fields: [categoryName], references: [name])
+  apiTokens ApiToken[]
+
+  password           String?
+  passwordResetToken String?
+
+  createdOn DateTime @default(now())
+  updatedOn DateTime @updatedAt
+}
+
+model ApiToken {
+  id    String @id @default(uuid())
+  owner String
+
+  name  String
+  token String @unique
+
+  createdOn DateTime @default(now())
+  updatedOn DateTime @updatedAt
+
+  User User? @relation(fields: [owner], references: [email], onDelete: Cascade)
 }
