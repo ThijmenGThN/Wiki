@@ -41,15 +41,3 @@ model ApiToken {
 
   User User? @relation(fields: [owner], references: [email], onDelete: Cascade)
 }
-
-model Category {
-  name  String @id
-  items Item[]
-}
-
-model Item {
-  name         String   @id
-  content      String
-  categoryName String
-  category     Category @relation(fields: [categoryName], references: [name])
-}

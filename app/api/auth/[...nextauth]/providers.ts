@@ -1,7 +1,6 @@
 import bcrypt from 'bcrypt'
 
 import Credentials from 'next-auth/providers/credentials'
-import Discord from 'next-auth/providers/discord'
 
 import prisma from '@/prisma/client'
 

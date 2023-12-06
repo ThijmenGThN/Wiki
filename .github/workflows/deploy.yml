@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: main # <- Rename to a valid branch.
+    branches: main
 
 jobs:
   deploy:

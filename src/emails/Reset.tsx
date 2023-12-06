@@ -52,23 +52,23 @@ export default function Email(props: iProps) {
                             className="mx-auto h-16 w-16 rounded-full bg-gray-50 border"
                             src={gravatar(props.email ?? '')}
                         />
-                        <Text className="truncate text-center w-full text-sm font-medium text-gray-900">{props.email ?? 'Unknown User'}</Text>
+                        <Text className="text-center w-full text-sm font-medium text-gray-900">{props.email ?? 'Unknown User'}</Text>
 
-                        <Section>
-                            <Text className="text-sm text-center font-medium text-gray-500">By continuing, you will be prompted to update your password.</Text>
+                    <Section>
+                        <Text className="text-sm text-center font-medium text-gray-500">By continuing, you will be prompted to update your password.</Text>
 
-                            <Link href={props.link} className="mt-10 flex gap-x-2 items-center justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-600">
-                                Continue
-                            </Link>
-                        </Section>
-                    </Container>
+                        <Link href={props.link} className="mt-10 flex gap-x-2 items-center justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-600">
+                            Continue
+                        </Link>
+                    </Section>
+                </Container>
 
-                    <Text className="pt-5 pb-10 w-full text-center text-xs text-gray-500">
-                        This message can be disregarded, if deemed irrelevant.
-                    </Text>
+                <Text className="pt-5 pb-10 w-full text-center text-xs text-gray-500">
+                    This message can be disregarded, if deemed irrelevant.
+                </Text>
 
-                </Body>
-            </Html>
+            </Body>
+        </Html>
         </Tailwind>
     )
 }

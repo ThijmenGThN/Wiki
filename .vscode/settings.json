@@ -1,13 +1,19 @@
 {
     "files.exclude": {
         "postcss.config.js": true,
+        "app/*/Session.tsx": true,
         ".eslintrc.json": true,
         "next-env.d.ts": true,
+        "**/*...rest*": true,
         ".react-email": true,
         "node_modules": true,
         "debug.log": true,
         "yarn*": true,
         ".next": true,
         "data": true,
-    }
+    },
+    "i18n-ally.localesPaths": [
+        "src/locales"
+    ],
+    "i18n-ally.keystyle": "nested"
 }

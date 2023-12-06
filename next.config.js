@@ -1,10 +1,6 @@
-const nextTranslate = require('next-translate-plugin')
 
-module.exports = nextTranslate({
+module.exports = {
     images: {
         domains: ['www.gravatar.com']
-    },
-    experimental: {
-        serverActions: true
     }
-})
+}
