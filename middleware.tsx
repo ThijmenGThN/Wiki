@@ -6,6 +6,7 @@ import { locales } from '@/helpers/navigation'
 
 const publicPages = [
     '/',
+    '/exploring.*',
     '/login',
     '/register.*',
     '/forgot.*'
