@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken'
 import { NextRequest, NextResponse } from "next/server"
 
 import prisma from '@/prisma/client'
+import Encoding from '@/helpers/encoding'
 
 export async function POST(req: NextRequest) {
 
@@ -29,7 +30,7 @@ export async function POST(req: NextRequest) {
         )) return NextResponse.json('The provided user details do not meet the criteria.', { status: 400 })
 
         let email
-        jwt.verify(token, process.env.NEXTAUTH_SECRET, (err: any, decoded: any) => {
+        jwt.verify(Encoding.fromBase64(token), process.env.NEXTAUTH_SECRET, (err: any, decoded: any) => {
             if (err) return NextResponse.json('The provided token has expired.', { status: 401 })
             email = decoded.email
         })

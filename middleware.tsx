@@ -2,20 +2,22 @@ import { NextRequest } from 'next/server'
 import { withAuth } from 'next-auth/middleware'
 import createIntlMiddleware from 'next-intl/middleware'
 
-export const defaultLocale = 'en'
-export const locales = ['en', 'nl'] // Also reflect changes in → src/components/locale/Switcher
+import { locales } from '@/helpers/navigation'
 
-const publicPages = ['/', '/login', '/register', '/forgot']
+const publicPages = [
+    '/',
+    '/login',
+    '/register.*',
+    '/forgot.*'
+]
 
-const intlMiddleware = createIntlMiddleware({ locales, defaultLocale })
+const intlMiddleware = createIntlMiddleware({ locales, defaultLocale: 'en', localePrefix: 'as-needed' })
 
 const authMiddleware = withAuth(
     function onSuccess(req) { return intlMiddleware(req) },
     {
         callbacks: { authorized: ({ token }) => token != null },
-        pages: {
-            signIn: '/login'
-        }
+        pages: { signIn: '/login' }
     }
 )
 

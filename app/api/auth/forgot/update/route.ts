@@ -5,6 +5,7 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
 import prisma from '@/prisma/client'
+import Encoding from '@/helpers/encoding'
 
 export async function POST(req: NextRequest) {
 
@@ -16,6 +17,8 @@ export async function POST(req: NextRequest) {
     try {
         const { password, token } = await req.json()
 
+        const decodedToken = Encoding.fromBase64(token)
+
         if (!z.string()
             .min(8)
             .max(64)
@@ -23,14 +26,14 @@ export async function POST(req: NextRequest) {
         ) return NextResponse.json('The provided password does not meet the required criteria.', { status: 400 })
 
         let email
-        jwt.verify(token, process.env.NEXTAUTH_SECRET, (err: any, decoded: any) => {
+        jwt.verify(decodedToken, process.env.NEXTAUTH_SECRET, (err: any, decoded: any) => {
             if (err) return NextResponse.json('The provided token has expired.', { status: 401 })
             email = decoded.email
         })
 
         const { passwordResetToken }: string | any = await prisma.user.findUnique({ where: { email } })
 
-        if (token != passwordResetToken) return NextResponse.json('The provided token has expired.', { status: 401 })
+        if (decodedToken != passwordResetToken) return NextResponse.json('The provided token has expired.', { status: 401 })
 
         await prisma.user.update({
             where: { email },

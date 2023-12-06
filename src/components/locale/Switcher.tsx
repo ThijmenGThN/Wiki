@@ -1,22 +1,16 @@
 "use client"
 
 import { Fragment } from 'react'
-import Link from 'next-intl/link'
 import { useLocale } from 'next-intl'
-import { usePathname } from 'next-intl/client'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import { Listbox, Transition } from '@headlessui/react'
 
 import { classNames } from '@/helpers/tailwind'
-
-const locales = [
-    'en',
-    'nl'
-]
+import { locales, Link, usePathname } from '@/helpers/navigation'
 
 export default function Component() {
     const locale = useLocale()
-    const pathname = usePathname()
+    const path = usePathname()
 
     return (
         <Listbox value={locale}>
@@ -37,7 +31,7 @@ export default function Component() {
                             <Listbox.Options className="absolute z-10 right-0 mt-1 max-h-60 w-20 overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                 {
                                     locales.map((lang, index) => (
-                                        <Link href={pathname} locale={lang} key={index}>
+                                        <Link href={path} locale={lang} key={index}>
                                             <Listbox.Option
                                                 className={
                                                     ({ active }) => classNames(

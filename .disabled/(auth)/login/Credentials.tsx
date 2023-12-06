@@ -1,11 +1,12 @@
 "use client"
 
 import { z } from "zod"
-import Link from "next/link"
 import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { signIn } from "next-auth/react"
 import { useTranslations } from "next-intl"
+
+import { Link } from '@/helpers/navigation'
 
 import Form from '@/components/Form'
 
@@ -19,7 +20,6 @@ export default function Component() {
         const { error }: any = await signIn('credentials', { email, password, redirect: false })
         if (error) return new Error(t('invalid-credentials-try-again-or-reset-your-password'))
 
-        router.refresh()
         router.push(callbackUrl)
     }
 

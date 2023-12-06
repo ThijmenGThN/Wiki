@@ -4,15 +4,15 @@ import { NextIntlClientProvider as Localizer } from 'next-intl'
 
 import Session from './Session'
 
-import { locales } from '../../middleware'
+import { locales } from '@/helpers/navigation'
 
 import '@/styles/globals.css'
 
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'Wiki • Thijmen Heuvelink',
-    description: 'A catalogue of saved knowledge served via a web-based app.'
+    title: 'next-leaflet',
+    description: 'An optimized tech stack for efficiency.'
 }
 
 const inter = Inter({ subsets: ['latin'] })

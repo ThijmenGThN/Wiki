@@ -5,7 +5,7 @@ services:
   app:
     image: node:18-alpine
     restart: unless-stopped
-    command: ["yarn", "deploy"]
+    command: ["npm", "run", "deploy"]
     ports: [$APP_PORT:3000]
     depends_on: [database]
     working_dir: /usr/app

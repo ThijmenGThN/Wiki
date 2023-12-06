@@ -1,10 +1,10 @@
 "use client"
 
-import Link from "next/link"
+import { useTranslations } from "next-intl"
+
+import { Link } from '@/helpers/navigation'
 
 import DeleteToken from "./token/Delete"
-
-import { useTranslations } from "next-intl"
 
 import type { ApiToken } from "@prisma/client"
 

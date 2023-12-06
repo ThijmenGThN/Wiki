@@ -1,10 +1,10 @@
 "use client"
 
-import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { HTMLInputTypeAttribute, useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 
+import { Link } from '@/helpers/navigation'
 import { classNames } from "@/helpers/tailwind"
 
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline"

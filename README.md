@@ -16,15 +16,17 @@ An optimized tech stack for efficiency, an all-in-one solution to quickly build 
 - User authorization [(nextauth)](https://next-auth.js.org/)
     - Credentials
     - OAuth2 [(providers)](https://next-auth.js.org/providers/)
-- Form validation [(zod)](https://zod.dev)
+- Localization [(next-intl)](https://next-intl-docs.vercel.app)
 - Emails [(react email)](https://react.email)
-- Server Actions
+- Form validation [(zod)](https://zod.dev)
 
 # Build with
 
 - NextJS [(site)](https://nextjs.org)
 - NextAuth [(site)](https://next-auth.js.org/)
+- Next-Intl [(site)](https://next-intl-docs.vercel.app)
 - Prisma [(site)](https://www.prisma.io)
+- React Email [(site)](https://react.email)
 - TailwindCSS [(site)](https://tailwindcss.com)
 
 # Getting started
@@ -53,21 +55,16 @@ cp sample.env .env
 nano .env
 ```
 
-3. Install the required dependencies, by default we do this with yarn.
+3. Install the required dependencies, by default we do this with npm.
 ```
-yarn install
+npm install
 ```
-> <b>Don't have yarn installed? </b><br/>
-> You can install it via npm.
-> ```sh
-> npm i -g yarn
-> ```
 
 ## Development
 
 1. Running Next.js in devmode.
 ```sh
-yarn dev
+npm run dev
 ```
 
 2. Starting the database.
@@ -82,7 +79,7 @@ docker-compose up -d
 
 ## Deployment
 
-To deploy next-leaflet we use docker by default, if you'd like to do it without docker, follow the <b>Development</b> procedure whilst changing step 1 to ` yarn deploy `.
+To deploy next-leaflet we use docker by default, if you'd like to do it without docker, follow the <b>Development</b> procedure whilst changing step 1 to ` npm run deploy `.
 
 > <b>Set the right variables.</b><br />
 > Ensure that ` COMPOSE_PROFILES ` has been set to ` prod ` in the environment file so docker knows to also deploy the ` app ` service alongside the ` database `.

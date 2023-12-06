@@ -1,6 +1,13 @@
 
-module.exports = {
+const withNextIntl = require('next-intl/plugin')('./src/helpers/localizer.ts')
+
+module.exports = withNextIntl({
     images: {
-        domains: ['www.gravatar.com']
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'www.gravatar.com'
+            }
+        ]
     }
-}
+})

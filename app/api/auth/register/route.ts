@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server"
 
 import prisma from '@/prisma/client'
 import Email from '@/emails/client'
+import Encoding from '@/helpers/encoding'
 
 import eRegister from '@/emails/Register'
 
@@ -31,7 +32,7 @@ export async function POST(req: NextRequest) {
         Email(
             eRegister({
                 email,
-                link: process.env.NEXTAUTH_URL + '/en/register/' + token,
+                link: process.env.NEXTAUTH_URL + '/en/register/' + Encoding.toBase64(token),
                 assets: { logoUrl: process.env.NEXTAUTH_URL + '/logo.webp' }
             }),
             {

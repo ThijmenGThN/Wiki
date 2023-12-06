@@ -5,6 +5,7 @@
 *.tsbuildinfo
 *.log*
 .env*
+.yarn*
 
 .DS_Store
 .react-email

@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server"
 
 import prisma from '@/prisma/client'
 import Email from '@/emails/client'
+import Encoding from '@/helpers/encoding'
 
 import eReset from '@/emails/Reset'
 
@@ -32,7 +33,7 @@ export async function POST(req: NextRequest) {
             Email(
                 eReset({
                     email,
-                    link: process.env.NEXTAUTH_URL + '/en/forgot/' + passwordResetToken,
+                    link: process.env.NEXTAUTH_URL + '/en/forgot/' + Encoding.toBase64(passwordResetToken),
                     assets: { logoUrl: process.env.NEXTAUTH_URL + '/logo.webp' }
                 }),
                 {
