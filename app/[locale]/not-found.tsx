@@ -10,7 +10,7 @@ export default function NotFound() {
     return (
         <div className="min-h-screen h-full">
             <div className="flex flex-col gap-y-2 bg-red-400 p-4 text-white rounded-b-lg text-center">
-                We're sorry, but it seems like we've hit a dead end.
+                We&apos;re sorry, but it seems like we&apos;ve hit a dead end.
                 <p className="text-xs">
                     However, worry not, as our wiki has a boundless well of information, ready to captivate and fascinate you.
                 </p>

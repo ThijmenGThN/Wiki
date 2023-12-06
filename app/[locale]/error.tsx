@@ -11,9 +11,9 @@ export default function Error() {
     return (
         <div className="min-h-screen h-full">
             <div className="flex flex-col gap-y-2 bg-red-400 p-4 text-white rounded-b-lg text-center">
-                Seems like we've encountered an error.
+                Seems like we&apos;ve encountered an error.
                 <p className="text-xs">
-                    Oops! We're sorry, but something went haywire. Give it another go later, and we'll sort things out.
+                    Oops! We&apos;re sorry, but something went haywire. Give it another go later, and we&apos;ll sort things out.
                 </p>
             </div>
 
