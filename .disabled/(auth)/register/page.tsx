@@ -1,11 +1,11 @@
 "use client"
 
 import { z } from 'zod'
-import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 
+import { Link } from '@/helpers/navigation'
 import gravatar from '@/helpers/gravatar'
 
 import Form from '@/components/Form'

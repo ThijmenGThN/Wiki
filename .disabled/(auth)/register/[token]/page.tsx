@@ -1,12 +1,12 @@
 "use client"
 
 import { z } from 'zod'
-import Link from 'next/link'
 import Image from 'next/image'
 import jwt from 'jsonwebtoken'
 import { signIn } from 'next-auth/react'
 import { useTranslations } from 'next-intl'
 
+import { Link } from '@/helpers/navigation'
 import gravatar from '@/helpers/gravatar'
 import Encoding from '@/helpers/encoding'
 

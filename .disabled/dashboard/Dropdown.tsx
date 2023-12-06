@@ -1,11 +1,11 @@
 "use client"
 
-import Link from 'next/link'
 import { Fragment } from 'react'
 import { useTranslations } from 'next-intl'
 import { Menu, Transition } from '@headlessui/react'
 import { signOut, useSession } from 'next-auth/react'
 
+import { Link } from '@/helpers/navigation'
 import { classNames } from "@/helpers/tailwind"
 
 interface iProps {

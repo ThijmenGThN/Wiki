@@ -1,12 +1,12 @@
 "use client"
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { useSession } from 'next-auth/react'
 import { usePathname } from 'next/navigation'
 import React, { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 
+import { Link } from '@/helpers/navigation'
 import gravatar from '@/helpers/gravatar'
 import { classNames } from "@/helpers/tailwind"
 
