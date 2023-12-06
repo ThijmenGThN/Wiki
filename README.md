@@ -1,15 +1,19 @@
 
-# next-leaflet
+# Wiki
 
-An optimized tech stack for efficiency, an all-in-one solution to quickly build modern web apps.
+A catalogue of saved knowledge served via a web-based app.
 
-<b>Looking for the [(directus)](https://github.com/ThijmenGThN/next-directus) branch?</b>
+![preview](https://i.imgur.com/QUbK6zW.png)
 
-![preview](https://i.imgur.com/uNKXhM7.png)
+# Work in progress
 
-<b>For now; next-leaflet is deemed to be stable, but usage in a production environment is not suggested.</b>
-
-<b>Use at your own discretion!</b>
+- Searching for items
+- Explorable categories
+- Item Management
+    - CRUD
+        - C: Title, Content
+- Item rating
+    - List ranking by rating
 
 # Features
 
