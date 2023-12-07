@@ -1,15 +1,7 @@
 {
-  "next-leaflet": {
-    "an-optimized-tech-stack-for-efficiency": "An optimized tech stack for efficiency",
-    "report-an-issue": "Report an issue",
-    "dashboard": "Dashboard",
-    "contribute": "Contribute",
-    "back-to-homepage": "Back to homepage",
-    "sorry-we-could-not-find-the-page-you-are-looking-for": "Sorry, we could not find the page you are looking for",
-    "page-not-found": "Page not found",
-    "an-error-occurred": "An error occurred",
-    "sorry-something-unexpected-happened": "Sorry, something unexpected happened",
-    "try-again": "Try again"
+  "branding": {
+    "title": "Wiki",
+    "description": "Maintained by Thijmen Heuvelink"
   },
   "dashboard": {
     "signed-in-as": "Signed in as",
