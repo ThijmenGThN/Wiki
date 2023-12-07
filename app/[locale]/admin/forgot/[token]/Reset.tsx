@@ -12,7 +12,7 @@ import Form from '@/components/Form'
 
 import aLogo from '@/assets/logo.webp'
 
-const callbackUrl = '/dashboard'
+const callbackUrl = '/admin/dashboard'
 
 export default function Component({ token, email }: { token: string, email: string }) {
     const t = useTranslations('auth')
@@ -82,7 +82,7 @@ export default function Component({ token, email }: { token: string, email: stri
                 </div>
 
                 <div className="absolute -bottom-10 left-5 text-center text-sm text-gray-500">
-                    <Link href="/login">
+                    <Link href="/admin/login">
                         ← {t('sign-in-to-a-different-account')}
                     </Link>
                 </div>

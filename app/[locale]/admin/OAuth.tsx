@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { useTranslations } from "next-intl"
 import { signIn, getProviders } from "next-auth/react"
 
-const callbackUrl = '/dashboard'
+const callbackUrl = '/admin/dashboard'
 
 export default function Component() {
     const t = useTranslations()

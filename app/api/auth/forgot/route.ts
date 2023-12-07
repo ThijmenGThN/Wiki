@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
             Email(
                 eReset({
                     email,
-                    link: process.env.NEXTAUTH_URL + '/en/forgot/' + Encoding.toBase64(passwordResetToken),
+                    link: process.env.NEXTAUTH_URL + '/en/admin/forgot/' + Encoding.toBase64(passwordResetToken),
                     assets: { logoUrl: process.env.NEXTAUTH_URL + '/logo.webp' }
                 }),
                 {

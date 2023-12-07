@@ -1,15 +1,14 @@
 "use client"
 
-import { z } from 'zod'
+import { z } from "zod"
 import Image from 'next/image'
-import { useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useState } from "react"
+import { useTranslations } from "next-intl"
 
 import { Link } from '@/helpers/navigation'
-import gravatar from '@/helpers/gravatar'
+import gravatar from "@/helpers/gravatar"
 
-import Form from '@/components/Form'
-import OAuth from '../OAuth'
+import Form from "@/components/Form"
 
 import aLogo from '@/assets/logo.webp'
 
@@ -20,12 +19,9 @@ export default function Page() {
     const [hasBeenSent, setHasBeenSent] = useState<boolean>(false)
 
     const onSubmit = async ({ email }: any) => {
-        if (!email) return
+        const { ok, status } = await fetch('/api/auth/forgot', { method: 'POST', body: JSON.stringify({ email }) })
 
-        const { ok, status } = await fetch('/api/auth/register', { method: 'POST', body: JSON.stringify({ email }) })
-
-        if (status == 400) return new Error(t('the-provided-address-does-not-meet-the-criteria-of-an-email-address'))
-        if (status == 403) return new Error(t('the-provided-email-address-is-already-taken'))
+        if (status == 406) return new Error(t('an-account-with-this-email-address-does-not-exists'))
         if (!ok) return new Error(t('sorry-something-unexpected-happened'))
 
         setFormEmail(email)
@@ -43,7 +39,7 @@ export default function Page() {
                     />
                 </Link>
                 <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                    {t('sign-up-for-an-account')}
+                    {t('reset-your-password')}
                 </h2>
             </div>
 
@@ -64,34 +60,30 @@ export default function Page() {
                                 </p>
 
                                 <p className="text-sm mt-4 text-center font-medium text-gray-900">
-                                    {t('we-have-sent-you-an-email-to-create-an-account')}
+                                    {t('we-have-sent-you-an-email-to-reset-your-password')}
                                 </p>
                             </div>
-                            : <>
-                                <Form
-                                    onSubmit={onSubmit}
-                                    validator={
-                                        z.object({
-                                            email: z.string()
-                                                .min(2, { message: t('this-email-address-is-too-short') })
-                                                .max(64, { message: t('this-email-address-is-too-long') })
-                                                .email(t('this-email-address-is-not-valid'))
-                                        })
-                                    }
-                                    submit={{ label: t('continue'), position: 'full' }}
-                                    fields={[
-                                        { id: 'email', type: 'email', label: t('email-address') }
-                                    ]}
-                                />
-
-                                <OAuth />
-                            </>
+                            : <Form
+                                onSubmit={onSubmit}
+                                validator={
+                                    z.object({
+                                        email: z.string()
+                                            .min(2, { message: t('this-email-address-is-too-short') })
+                                            .max(64, { message: t('this-email-address-is-too-long') })
+                                            .email(t('this-email-address-is-not-valid'))
+                                    })
+                                }
+                                submit={{ label: t('continue'), position: 'full' }}
+                                fields={[
+                                    { id: 'email', type: 'email', label: t('email-address') }
+                                ]}
+                            />
                     }
                 </div>
 
                 <div className="absolute -bottom-10 left-5 text-center text-sm text-gray-500">
-                    <Link href="/login">
-                        ← {t('already-have-an-account')}
+                    <Link href="/admin/login">
+                        ← {t('sign-in-to-your-account')}
                     </Link>
                 </div>
             </div>

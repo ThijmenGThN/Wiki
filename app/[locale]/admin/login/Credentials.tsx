@@ -10,7 +10,7 @@ import { Link } from '@/helpers/navigation'
 
 import Form from '@/components/Form'
 
-const callbackUrl = '/dashboard'
+const callbackUrl = '/admin/dashboard'
 
 export default function Component() {
     const t = useTranslations('auth')
@@ -52,13 +52,8 @@ export default function Component() {
 
             <div className="flex mt-5 items-center justify-between">
                 <div className="text-sm leading-6">
-                    <Link href="/forgot" className="font-semibold text-primary hover:text-primary-600">
+                    <Link href="/admin/forgot" className="font-semibold text-primary hover:text-primary-600">
                         {t('forgot-password')}
-                    </Link>
-                </div>
-                <div className="text-sm leading-6">
-                    <Link href="/register" className="font-semibold text-primary hover:text-primary-600">
-                        {t('create-an-account')}
                     </Link>
                 </div>
             </div>

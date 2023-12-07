@@ -66,7 +66,7 @@ export default function Component(props: iProps) {
                         <Menu.Item>
                             {({ active }) =>
                                 <button
-                                    onClick={() => signOut({ callbackUrl: '/login' })}
+                                    onClick={() => signOut({ callbackUrl: '/admin/login' })}
                                     className={
                                         classNames(
                                             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',

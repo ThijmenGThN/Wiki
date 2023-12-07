@@ -37,7 +37,7 @@ export default function Page() {
 
                 <div className="absolute -bottom-10 left-5 text-center text-sm text-gray-500">
                     <Link href="/">
-                        ← {t('back-to-homepage')}
+                        ← {t('return-to-wiki')}
                     </Link>
                 </div>
             </div>

@@ -7,9 +7,9 @@ import { locales } from '@/helpers/navigation'
 const publicPages = [
     '/',
     '/exploring.*',
-    '/login',
-    '/register.*',
-    '/forgot.*'
+    '/admin/login',
+    '/admin/register.*',
+    '/admin/forgot.*'
 ]
 
 const intlMiddleware = createIntlMiddleware({ locales, defaultLocale: 'en', localePrefix: 'as-needed' })
@@ -18,7 +18,7 @@ const authMiddleware = withAuth(
     function onSuccess(req) { return intlMiddleware(req) },
     {
         callbacks: { authorized: ({ token }) => token != null },
-        pages: { signIn: '/login' }
+        pages: { signIn: '/admin/login' }
     }
 )
 
