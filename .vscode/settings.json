@@ -1,19 +1,19 @@
 {
     "files.exclude": {
+        "src/locales/i18n.ts": true,
+        "package-lock.json": true,
         "postcss.config.js": true,
-        "app/*/Session.tsx": true,
         ".eslintrc.json": true,
+        "middleware.ts": true,
         "next-env.d.ts": true,
-        "**/*...rest*": true,
-        ".react-email": true,
         "node_modules": true,
+        "LICENSE.md": true,
         "debug.log": true,
-        "*yarn*": true,
-        ".next": true,
-        "data": true,
+        ".vscode": true,
+        ".next": true
     },
+    "i18n-ally.keystyle": "nested",
     "i18n-ally.localesPaths": [
         "src/locales"
-    ],
-    "i18n-ally.keystyle": "nested"
+    ]
 }

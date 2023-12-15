@@ -1,5 +1,5 @@
 
-const withNextIntl = require('next-intl/plugin')('./src/helpers/localizer.ts')
+const withNextIntl = require('next-intl/plugin')('./src/locales/i18n.ts')
 
 module.exports = withNextIntl({
     images: {

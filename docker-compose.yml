@@ -1,23 +1,35 @@
 version: "3"
+
 services:
 
-  # ┏━ NextJS | A framework for the web.
-  app:
-    image: node:18-alpine
+  # ┏━ NextJS | A framework to build web apps.
+  next:
+    image: node:20-alpine
+    command: sh -c "npm ci && npm run build && npm start"
     restart: unless-stopped
-    command: ["npm", "run", "deploy"]
-    ports: [$APP_PORT:3000]
-    depends_on: [database]
-    working_dir: /usr/app
-    volumes: [.:/usr/app]
     profiles: ["prod"]
     env_file: .env
+    working_dir: /app
+    ports: [$NEXT_PORT:3000]
+    depends_on: [pocketbase]
+    volumes: 
+      - next_build:/app/.next
+      - next_modules:/app/node_modules
+      - ./:/app
 
-  # ┏━ MySQL | An SQL based database.
-  database:
-    image: postgres:15
+  # ┏━ Pocketbase | This'll provide our backend.
+  pocketbase:
+    image: ghcr.io/muchobien/pocketbase:latest
     restart: unless-stopped
-    ports: [$DATABASE_PORT:5432]
-    volumes: [./data:/var/lib/postgresql/data]
-    environment:
-      POSTGRES_PASSWORD: $DATABASE_PASS
+    ports: ["$POCKETBASE_PORT:8090"]
+    env_file: .env
+    volumes: 
+      - pocketbase_data:/pb_data
+      - ./src/backend/types.d.ts:/pb_data/types.d.ts
+      - ./src/backend/migrations:/pb_migrations
+      - ./src/backend/hooks:/pb_hooks
+      
+volumes: 
+  next_build:
+  next_modules:
+  pocketbase_data:

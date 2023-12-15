@@ -1,22 +1,17 @@
 
-# ━━ Blacklist ━━
+# Environment
+.env
+.env*.local
 
-*.pem
-*.tsbuildinfo
-*.log*
-.env*
-.yarn*
 
-.DS_Store
-.react-email
+# Next.JS
+.next
+node_modules
+
+
+# Package Manager
+npm-debug.log*
+
+
+# Compilers
 next-env.d.ts
-/data
-/out
-/build
-/.next
-/node_modules
-
-
-# ━━ Whitelist ━━
-
-!.env.sample

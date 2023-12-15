@@ -5,27 +5,16 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "baseUrl": ".",
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [{ "name": "next" }],
-    "paths": {
-      "@/auth/*": ["app/api/auth/[...nextauth]/*"],
-      "@/assets/*": ["src/assets/*"],
-      "@/components/*": ["src/components/*"],
-      "@/emails/*": ["src/emails/*"],
-      "@/helpers/*": ["src/helpers/*"],
-      "@/locales/*": ["src/assets/*"],
-      "@/prisma/*": ["src/prisma/*"],
-      "@/styles/*": ["src/styles/*"]
-    }
+    "plugins": [ {"name": "next"} ],
+    "paths": { "@/*": ["./src/*"] }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

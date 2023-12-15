@@ -2,10 +2,20 @@ name: Deploy
 
 on:
   push:
-    branches: main
+    branches: leaflet # <- Rename to a valid branch.
 
 jobs:
-  deploy:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 20
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm run lint
+  setup:
+    needs: lint
     runs-on: self-hosted
     steps:
       - uses: appleboy/ssh-action@master
@@ -17,11 +27,23 @@ jobs:
           script: |
             mkdir ~/env ~/env/${{github.event.repository.name}}
             cd ~/env/${{github.event.repository.name}}
-
+            
             sudo git clone https://github.com/${{github.repository}} .
             sudo git pull
 
             echo '${{ secrets.APP_ENV }}' > .env
-            
+  deploy:
+    needs: [lint, setup]
+    runs-on: self-hosted
+    steps:
+      - uses: appleboy/ssh-action@master
+        with:
+          key:      ${{ secrets.SSH_KEY }} 
+          host:     ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port:     ${{ secrets.SSH_PORT }}
+          script: |
+            cd ~/env/${{github.event.repository.name}}
+
             sudo docker-compose down
             sudo docker-compose up -d

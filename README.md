@@ -1,137 +1,142 @@
 
-# Wiki
+# next-leaflet
 
-A catalogue of saved knowledge served via a web-based app.
+An optimized tech stack for efficiency, an all-in-one solution to quickly build modern web apps.
 
-![preview](https://i.imgur.com/QUbK6zW.png)
+![preview](https://i.imgur.com/uNKXhM7.png)
 
-# Work in progress
+### Powered by
 
-- Searching for items
-- Explorable categories
-- Item Management
-    - CRUD
-        - C: Title, Content
-- Item rating
-    - List ranking by rating
-
-# Features
-
-- User authorization [(nextauth)](https://next-auth.js.org/)
-    - Credentials
-    - OAuth2 [(providers)](https://next-auth.js.org/providers/)
-- Localization [(next-intl)](https://next-intl-docs.vercel.app)
-- Emails [(react email)](https://react.email)
-- Form validation [(zod)](https://zod.dev)
-
-# Build with
-
-- NextJS [(site)](https://nextjs.org)
-- NextAuth [(site)](https://next-auth.js.org/)
-- Next-Intl [(site)](https://next-intl-docs.vercel.app)
-- Prisma [(site)](https://www.prisma.io)
-- React Email [(site)](https://react.email)
-- TailwindCSS [(site)](https://tailwindcss.com)
-
-# Getting started
-
-## Dependencies
-
-- NodeJS [(site)](https://nodejs.org) ` >16.8 `
-- Docker [(site)](https://docker.com/get-started/) ` >24 `
-- Docker Compose [(site)](https://docs.docker.com/compose/install) ` >1.28 `
-
-## Setup
-
-1. Clone the repository to your system. 
-```sh
-git clone https://github.com/ThijmenGThN/next-leaflet
-```
-```sh
-cd next-leaflet
-```
-
-2. Preparing the environment, it is recommend to use the sample file.
-```sh
-cp sample.env .env
-```
-```sh
-nano .env
-```
-
-3. Install the required dependencies, by default we do this with npm.
-```
-npm install
-```
+- [NextJS](https://nextjs.org)
+- [Pocketbase](https://pocketbase.io)
 
 ## Development
 
-1. Running Next.js in devmode.
-```sh
-npm run dev
-```
+<details><summary>Instructions</summary>
 
-2. Starting the database.
-```sh
-docker-compose up -d
-```
-> <b>A fresh installation needs an additional step.</b><br/>
-> Apply prisma's schema to the database.
-> ```sh
-> npx prisma db push
-> ```
+1. Install the required dependencies:
+    - [NodeJS](https://nodejs.org)
+    - [Docker](https://docker.com/get-started/)
+
+2. Clone the repository to your system. 
+
+    1.
+        ```sh 
+        git clone https://github.com/ThijmenGThN/next-leaflet
+        ```
+
+    2. 
+        ```sh
+        cd next-leaflet
+        ```
+
+3. Preparing the environment, it is recommend to use the sample file.
+
+    1. 
+        ```sh
+        cp sample.env .env
+        ```
+
+    2.
+        ```sh
+        nano .env
+        ```
+
+4. Install the required packages, by default we do this with npm.
+
+    ```
+    npm install
+    ```
+
+5. Running Next.js for development.
+
+    ```sh
+    npm run dev
+    ```
+
+6. Starting pocketbase via docker.
+
+    ```sh
+    docker-compose up
+    ```
+    > Pocketbase can later be closed via `CTRL + C`
+
+</details>
 
 ## Deployment
 
-To deploy next-leaflet we use docker by default, if you'd like to do it without docker, follow the <b>Development</b> procedure whilst changing step 1 to ` npm run deploy `.
+<details><summary>Instructions</summary>
 
-> <b>Set the right variables.</b><br />
-> Ensure that ` COMPOSE_PROFILES ` has been set to ` prod ` in the environment file so docker knows to also deploy the ` app ` service alongside the ` database `.
->
-> Also make sure that the ` PRISMA_CONNECTOR ` has been set right, the default "<b>localhost</b>" won't work in deployment, instead replace it with "<b>database</b>".
+1. Install the required dependencies:
+    - [Docker](https://docker.com/get-started/)
 
-0. Pull down any existing services that might run in the background.
-```sh
-docker-compose down
-```
+2. Clone the repository to your system. 
 
-1. Start next-leaflet in deployment-mode.
-```sh
-docker-compose up -d
-```
+    1.
+        ```sh 
+        git clone https://github.com/ThijmenGThN/next-leaflet
+        ```
 
-> <b>next-leaflet should (after a while) go up on port ` 3000 `.</b><br />
-> Display the console logs if the service is not going online. Do take note that the port might differ if adjusted in the environment file.
-> ```sh
-> docker-compose logs
-> ```
+    2. 
+        ```sh
+        cd next-leaflet
+        ```
 
-### GitHub Actions
+3. Preparing the environment, it is recommend to use the sample file.
 
-Setting up CI/CD with next-leaflet is not only a breeze to setup but also very useful to eliminate deployment steps.
+    1. 
+        ```sh
+        cp sample.env .env
+        ```
 
-<b>This setup will guide you to deploy your next-leaflet app on an ssh-accessible host.</b>
+    2.
+        ```sh
+        nano .env
+        ```
 
-#### Configure environment variables
+4. Deploying your app with docker.
 
-0. Requirements
- - Ensure that you have access to an active GitHub Actions (runner).
- - Install docker(-compose) on the server you'd like to deploy next-leaflet on.
-    - Docker [(site)](https://docker.com/get-started/) ` >24 `
-    - Docker Compose [(site)](https://docs.docker.com/compose/install) ` >1.28 `
+    ```sh
+    docker-compose up -d
+    ```
+    > To stop your app from running, execute the following: `docker compose down`
 
-1. Within GitHub navigate to ` Settings > Secrets and variables > Actions `.
+</details>
 
-2. Create the following repository secrets:
 
-Name|Expects|Description
--|-|-
-SSH_KEY|Private Key|Generate a new ssh key without a password.
-SSH_HOST|IP Address|The address of your server with an Actions (runner) active.
-SSH_USER|Username|Host system user where next-leaflet should be deploy on.
-SSH_PORT|Port Number|This usually refers to the default ssh port 22.
-APP_ENV|Environment|A copy of .env.sample with adjusted values for deployment.
+### Deployment - GitHub Actions
 
-3. Designate a trigger branch within the ` .github/deploy.yml ` file.
+<details><summary>Instructions</summary>
 
-> Any change pushed to the targeted branch should now trigger a request to deploy next-leaflet via docker-compose.
+> **IMPORTANT** The CI/CD workflow for next-leaflet has been setup in a way where it'll connect to any VPS via SSH as defined in the Repository Secrets.
+
+1. Prepare your VPS.
+
+    1. Install the required dependencies:
+
+        - [Docker](https://docker.com/get-started/)
+
+2. Configure your runner.
+
+    1. Within Github navigate to 
+        
+        ` Settings > Secrets and variables > Actions `
+
+    2. Create the following repository secrets:
+
+        Name|Expects|Description
+        -|-|-
+        SSH_KEY|Private Key|Generate a new ssh key without a password.
+        SSH_HOST|IP Address|The address of your server with an Actions (runner) active.
+        SSH_USER|Username|Host system user where next-leaflet should be deploy on.
+        SSH_PORT|Port Number|This usually refers to the default ssh port 22.
+        APP_ENV|Environment|A copy of .env.sample with adjusted values for deployment.
+
+3. Enable the workflow.
+
+    1. Designate a trigger branch within the ` .github/deploy.yml ` file.
+
+        > Any change pushed to the targeted branch should now trigger a request to deploy next-leaflet via docker-compose on the designated VPS.
+
+
+</details>
