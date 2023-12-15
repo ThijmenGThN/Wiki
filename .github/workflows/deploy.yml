@@ -5,17 +5,17 @@ on:
     branches: main
 
 jobs:
-  lint:
+  validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - uses: actions/checkout@v2
       - run: npm ci
       - run: npm run lint
-  setup:
-    needs: lint
+  prepare:
+    needs: validate
     runs-on: self-hosted
     steps:
       - uses: appleboy/ssh-action@master
@@ -33,7 +33,7 @@ jobs:
 
             echo '${{ secrets.APP_ENV }}' > .env
   deploy:
-    needs: [lint, setup]
+    needs: [validate, prepare]
     runs-on: self-hosted
     steps:
       - uses: appleboy/ssh-action@master
