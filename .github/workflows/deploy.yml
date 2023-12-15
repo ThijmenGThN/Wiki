@@ -22,6 +22,8 @@ jobs:
             sudo git pull
 
             echo '${{ secrets.APP_ENV }}' > .env
+            
+            sudo docker-compose pull
   deploy:
     needs: setup
     runs-on: self-hosted
