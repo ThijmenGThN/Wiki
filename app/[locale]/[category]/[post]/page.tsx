@@ -1,3 +1,6 @@
+import Markdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+
 import pb from "@/helpers/pocketbase"
 import { Link } from "@/helpers/navigation"
 
@@ -23,9 +26,11 @@ export default async function Page({ params }: { params: { post: string } }) {
                     </p>
                 </div>
 
-                <div className="rounded border shadow-sm p-8 bg-gradient-to-tr from-gray-50 to-white"
-                    dangerouslySetInnerHTML={{ __html: post.content }}
-                />
+                <div className="rounded border shadow-sm p-8 bg-gradient-to-tr from-gray-50 to-white">
+                    <Markdown remarkPlugins={[remarkGfm]} className='prose prose-sm min-w-full'>
+                        {post.content}
+                    </Markdown>
+                </div>
 
                 <div className="mx-auto mt-16">
                     <Link href={'/' + category.slug}>
