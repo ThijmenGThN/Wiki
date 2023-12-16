@@ -43,7 +43,7 @@ export default async function Page({ params }: { params: { category: string } })
 
                 <div className="mx-auto mt-16">
                     <Link href='/'>
-                        <button className="bg-black rounded-full p-3 text-white items-center">
+                        <button className="bg-black rounded-full p-3 text-white items-center hover:scale-105 transition-transform duration-200">
                             <ArrowUturnLeftIcon className="text-white h-5 w-5" />
                         </button>
                     </Link>
