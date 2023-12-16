@@ -9,6 +9,8 @@ import Header from "@/components/Header"
 
 import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid"
 
+export const dynamic = 'force-dynamic'
+
 export default async function Page({ params }: { params: { post: string } }) {
     const post = await pb.collection('posts').getFirstListItem(`slug~"${params.post}"`)
     const category = await pb.collection('categories').getOne(post.category)

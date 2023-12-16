@@ -5,6 +5,8 @@ import pb from "@/helpers/pocketbase"
 import Search from "@/components/Search"
 import Header from "@/components/Header"
 
+export const dynamic = 'force-dynamic'
+
 export default async function Page() {
 
     const categories = await pb.collection('categories').getFullList({
