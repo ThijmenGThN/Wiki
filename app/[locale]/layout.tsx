@@ -7,8 +7,10 @@ import type { Metadata } from 'next'
 
 import { locales } from '@/helpers/navigation'
 
-import '@/styles/globals.css'
 import LocaleSwitcher from '@/components/LocaleSwitcher'
+import Footer from '@/components/Footer'
+
+import '@/styles/globals.css'
 
 export const metadata: Metadata = {
     title: 'Wiki • Thijmen Heuvelink',
@@ -60,9 +62,7 @@ export default function Layout({ children, params: { locale } }: { children: Rea
                             {children}
                         </div>
 
-                        <p className="my-16 mx-auto text-xs text-center w-3/4 sm:w-1/2">
-                            This knowledge base, serves as a valuable tool to simplify installations, troubleshoot common problems, and enhance the overall developer experience. All rights reserved.
-                        </p>
+                        <Footer />
 
                     </div>
                 </Localizer>

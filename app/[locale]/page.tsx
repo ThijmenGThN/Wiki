@@ -1,9 +1,9 @@
+import Link from "next/link"
 
 import pb from "@/helpers/pocketbase"
 
 import Search from "@/components/Search"
 import Header from "@/components/Header"
-import Link from "next/link"
 
 export default async function Page() {
 
