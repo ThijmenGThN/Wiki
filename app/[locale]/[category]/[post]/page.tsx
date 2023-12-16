@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: { post: string } }) {
                 </div>
 
                 <div className="rounded border shadow-sm p-8 bg-gradient-to-tr from-gray-50 to-white">
-                    <Markdown remarkPlugins={[remarkGfm]} className='prose prose-sm min-w-full'>
+                    <Markdown remarkPlugins={[remarkGfm]} className='prose min-w-full'>
                         {post.content}
                     </Markdown>
                 </div>
