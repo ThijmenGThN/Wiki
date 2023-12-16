@@ -26,7 +26,7 @@ export default async function Page() {
                         categories.map(category => (
                             <li key={category.id}>
                                 <Link className="flex flex-col gap-y-2 rounded bg-gradient-to-tr from-gray-50 to-white border p-4 shadow-sm hover:cursor-pointer hover:to-gray-100"
-                                    href={category.slug}
+                                    href={category.slug ?? '/'}
                                 >
                                     <p>
                                         {category.name}

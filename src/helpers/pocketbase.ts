@@ -3,10 +3,13 @@ import Pocketbase from 'pocketbase'
 
 var pb: Pocketbase
 
-// -- Internal
-if (typeof window === 'undefined') pb = new Pocketbase('http://127.0.0.1:' + process.env.POCKETBASE_PORT)
+// -- Server
+if (typeof window === 'undefined') {
+    if (process.env.COMPOSE_PROFILES?.toLocaleLowerCase() != 'prod') pb = new Pocketbase('http://0.0.0.0:8090')
+    else pb = new Pocketbase('http://pocketbase:' + process.env.POCKETBASE_PORT)
+}
 
-// -- Remote
+// -- Client
 else {
     pb = new Pocketbase(process.env.NEXT_PUBLIC_POCKETBASE_URL)
 
