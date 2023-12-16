@@ -1,4 +1,13 @@
 {
+  "log-in": "Log in",
+  "an-optimized-tech-stack-for-efficiency": "An optimized tech stack for efficiency.",
+  "read-more": "Read more",
+  "a-comprehensive-and-efficient-appstack-that-combines-the-power-of-next-js-and-the-flexibility-of-pocketbase-for-streamlined-web-application-development": "A comprehensive and efficient appstack that combines the power of Next.js and the flexibility of PocketBase for streamlined web application development.",
+  "open-pocketbase": "Open Pocketbase",
+  "branding": {
+    "title": "Wiki",
+    "description": "Maintained by Thijmen Heuvelink"
+  },
   "auth": {
     "sign-in-to-your-account": "Sign in to your account",
     "something-went-wrong-try-again-later": "Something went wrong, try again later.",
@@ -36,10 +45,5 @@
     "name": "Name",
     "email-address": "Email address"
   },
-  "log-in": "Log in",
-  "an-optimized-tech-stack-for-efficiency": "An optimized tech stack for efficiency.",
-  "read-more": "Read more",
-  "next-leaflet": "next-leaflet",
-  "a-comprehensive-and-efficient-appstack-that-combines-the-power-of-next-js-and-the-flexibility-of-pocketbase-for-streamlined-web-application-development": "A comprehensive and efficient appstack that combines the power of Next.js and the flexibility of PocketBase for streamlined web application development.",
-  "open-pocketbase": "Open Pocketbase"
+  "star-this-project-on-github": "Star this project on Github"
 }
