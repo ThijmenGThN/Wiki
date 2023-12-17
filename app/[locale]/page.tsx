@@ -9,9 +9,10 @@ export const dynamic = 'force-dynamic'
 
 export default async function Page() {
 
-    const categories = await pb.collection('categories').getFullList({
-        sort: '-created',
-    })
+    const categories = await pb.collection('categories').getFullList()
+
+    // Sort array alphabetically
+    const results = categories.sort((a, b) => a.slug.localeCompare(b.slug))
 
     return (
         <>
@@ -25,7 +26,7 @@ export default async function Page() {
                 </b>
                 <ul className="grid gap-4 md:grid-cols-2">
                     {
-                        categories.map(category => (
+                        results.map(category => (
                             <li key={category.id}>
                                 <Link className="flex flex-col gap-y-2 rounded bg-gradient-to-tr from-gray-50 to-white border p-4 shadow-sm hover:cursor-pointer hover:to-gray-100"
                                     href={category.slug ?? '/'}

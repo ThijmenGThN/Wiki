@@ -14,6 +14,9 @@ export default async function Page({ params }: { params: { category: string } })
     const category = await pb.collection('categories').getFirstListItem(`name~"${params.category}"`)
     const posts = await pb.collection('posts').getFullList({ filter: `category="${category.id}"` })
 
+    // Sort array alphabetically
+    const results = posts.sort((a, b) => a.slug.localeCompare(b.slug))
+
     return (
         <>
             <Header breadcrumb={category.name} />
@@ -26,7 +29,7 @@ export default async function Page({ params }: { params: { category: string } })
                 </b>
                 <ul className="grid gap-4 md:grid-cols-2">
                     {
-                        posts.map(post => (
+                        results.map(post => (
                             <li key={post.id}>
                                 <Link className="flex flex-col gap-y-2 rounded bg-gradient-to-tr from-gray-50 to-white border p-4 shadow-sm hover:cursor-pointer hover:to-gray-100"
                                     href={category.slug + '/' + post.slug}
