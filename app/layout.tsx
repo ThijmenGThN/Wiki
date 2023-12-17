@@ -45,7 +45,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
                 <div className="container mx-auto flex flex-col min-h-screen h-full">
 
-                    <div className="grow mt-8">
+                    <div className="grow mt-24">
                         {children}
                     </div>
 
