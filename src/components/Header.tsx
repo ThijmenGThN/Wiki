@@ -1,16 +1,13 @@
-import { useTranslations } from 'next-intl'
-
-import { Link } from '@/helpers/navigation'
+import Link from 'next/link'
 
 export default function Header({ breadcrumb }: { breadcrumb?: string }) {
-    const t = useTranslations()
 
     return (
         <div className="flex flex-col gap-y-3 text-center">
             <div className='flex justify-center'>
                 <Link href="/" className='flex gap-x-4 items-center'>
                     <p className="text-2xl font-semibold hover:cursor-pointer">
-                        {t('branding.title')}
+                        Wiki
                     </p>
 
                     {breadcrumb && (
@@ -27,7 +24,7 @@ export default function Header({ breadcrumb }: { breadcrumb?: string }) {
             </div>
 
             <p className="text-sm">
-                {t('branding.description')}
+                Maintained by Thijmen Heuvelink
             </p>
         </div>
     )

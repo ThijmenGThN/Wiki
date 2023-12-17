@@ -24,7 +24,6 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
-    "next-intl": "^3.3.2",
     "pocketbase": "^0.20.0",
     "postcss": "^8",
     "react-markdown": "^9.0.1",

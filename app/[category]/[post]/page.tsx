@@ -1,8 +1,8 @@
+import Link from "next/link"
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
 import pb from "@/helpers/pocketbase"
-import { Link } from "@/helpers/navigation"
 
 import Search from "@/components/Search"
 import Header from "@/components/Header"

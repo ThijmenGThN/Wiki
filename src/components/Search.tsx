@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { useTranslations } from "next-intl"
 
 import pb from "@/helpers/pocketbase"
 
@@ -10,8 +9,6 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid"
 import { classNames } from "@/helpers/tailwind"
 
 export default function Search() {
-    const t = useTranslations()
-
     const [results, setResults] = useState<Array<any>>([])
     const [searchTerm, setSearchTerm] = useState('')
 
@@ -86,7 +83,7 @@ export default function Search() {
 
             <div className="text-right mt-3 px-2 mx-8 sm:mx-16 md:mx-32 underline text-xs">
                 <Link href="https://github.com/ThijmenGThN/Wiki" target="_blank">
-                    {t('star-this-project-on-github')}
+                    Star this project on GitHub
                 </Link>
             </div>
         </>

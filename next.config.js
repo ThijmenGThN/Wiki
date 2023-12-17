@@ -1,7 +1,5 @@
 
-const withNextIntl = require('next-intl/plugin')('./src/locales/i18n.ts')
-
-module.exports = withNextIntl({
+module.exports = {
     images: {
         remotePatterns: [
             {
@@ -10,4 +8,4 @@ module.exports = withNextIntl({
             }
         ]
     }
-})
+}
