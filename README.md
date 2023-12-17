@@ -1,9 +1,9 @@
 
-# next-leaflet
+# Wiki
 
-An optimized tech stack for efficiency, an all-in-one solution to quickly build modern web apps.
+An open-source wiki built with Pocketbase as backend, based on [next-leaflet](https://github.com/ThijmenGThN/next-leaflet) (a template), easily deploy this yourself via the instructions below.
 
-![preview](https://i.imgur.com/uNKXhM7.png)
+![preview](https://i.imgur.com/9tsGgDn.png)
 
 ### Powered by
 
@@ -22,12 +22,12 @@ An optimized tech stack for efficiency, an all-in-one solution to quickly build 
 
     1.
         ```sh 
-        git clone https://github.com/ThijmenGThN/next-leaflet
+        git clone https://github.com/ThijmenGThN/Wiki
         ```
 
     2. 
         ```sh
-        cd next-leaflet
+        cd Wiki
         ```
 
 3. Preparing the environment, it is recommend to use the sample file.
@@ -74,12 +74,12 @@ An optimized tech stack for efficiency, an all-in-one solution to quickly build 
 
     1.
         ```sh 
-        git clone https://github.com/ThijmenGThN/next-leaflet
+        git clone https://github.com/ThijmenGThN/Wiki
         ```
 
     2. 
         ```sh
-        cd next-leaflet
+        cd Wiki
         ```
 
 3. Preparing the environment, it is recommend to use the sample file.
