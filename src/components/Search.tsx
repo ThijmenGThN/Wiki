@@ -13,7 +13,7 @@ export default function Search() {
     const [searchTerm, setSearchTerm] = useState('')
 
     useEffect(() => {
-        if (searchTerm.length < 5) setResults([])
+        if (searchTerm.length < 3) setResults([])
         else {
             var delay = setTimeout(async () => {
                 let records = await pb.collection('posts').getFullList({
