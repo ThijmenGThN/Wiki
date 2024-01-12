@@ -9,6 +9,7 @@ import '@/styles/globals.css'
 export const metadata: Metadata = {
     title: 'Wiki • Thijmen Heuvelink',
     description: 'A catalogue of saved knowledge served via a web-based app.',
+    manifest: 'manifest.json'
 }
 
 const inter = Inter({ subsets: ['latin'] })
