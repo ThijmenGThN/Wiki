@@ -2,6 +2,8 @@ name: Deploy
 
 on:
   push:
+    # Branch on which to automatically run the deploy-action.
+    # ┗━ Options: branch.name ━━ example: "main"
     branches: main
 
 jobs:
@@ -20,8 +22,9 @@ jobs:
             
             sudo git clone https://github.com/${{github.repository}} .
             sudo git clean -f
+            sudo git checkout -f
             sudo git pull
-            
+
             echo '${{ secrets.APP_ENV }}' > .env
             
             sudo docker-compose pull
@@ -39,4 +42,4 @@ jobs:
             cd ~/env/${{github.event.repository.name}}
 
             sudo docker-compose down
-            sudo docker-compose up -d
+            sudo docker-compose up -d --remove-orphans

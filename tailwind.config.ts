@@ -11,7 +11,7 @@ module.exports = {
 
         // ----- Recommended -----
         // Use https://realtimecolors.com to pick your palette,
-        // then supply https://uicolors.app/create with your colors
+        // then supply https://tailwindshades.com with your colors
         // to generate the objects that are required below.
 
         primary: {
@@ -56,6 +56,7 @@ module.exports = {
           900: '#000000',
           950: '#000000'
         }
+
       }
     }
   }

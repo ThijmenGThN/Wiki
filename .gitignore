@@ -1,7 +1,7 @@
 
 # Environment
-.env
-.env*.local
+.env*
+!.env.sample
 
 
 # Next.JS

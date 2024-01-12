@@ -1,7 +1,6 @@
 {
   "name": "next-leaflet",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -24,7 +23,7 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
-    "pocketbase": "^0.20.0",
+    "pocketbase": "^0.20",
     "postcss": "^8",
     "react-markdown": "^9.0.1",
     "remark-gfm": "^4.0.0",
