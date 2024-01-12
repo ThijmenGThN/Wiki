@@ -1,9 +1,9 @@
 
-# next-leaflet
+# Wiki
 
-An optimized tech stack for efficiency, an all-in-one solution to quickly build modern web apps.
+An open-source wiki built with Pocketbase as backend, based on [next-leaflet](https://github.com/ThijmenGThN/next-leaflet) (a template), easily deploy this yourself via the instructions below.
 
-![preview](https://i.imgur.com/oulW1VO.png)
+![preview](https://i.imgur.com/9tsGgDn.png)
 
 
 
@@ -17,18 +17,14 @@ An optimized tech stack for efficiency, an all-in-one solution to quickly build 
 ### Features
 
 - [Realtime Database](https://pocketbase.io)
-- [Authentication](https://pocketbase.io/docs/authentication/)
 - [File Storage](https://pocketbase.io/docs/files-handling/)
-- [Localization](https://next-intl-docs.vercel.app)
 
 
 
 ### Includes
 
 - [Tailwind](https://tailwindcss.com)
-- [Gravatar](https://gravatar.com)
 - [Heroicons](https://heroicons.com)
-- [HeadlessUI](https://headlessui.com)
 
 
 
