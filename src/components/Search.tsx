@@ -64,7 +64,7 @@ export default function Search() {
                                 results.map((result) => (
                                     <li key={result.id}>
                                         <Link className="flex flex-col gap-y-2 rounded bg-gradient-to-tr from-gray-50 to-white border p-4 shadow-sm hover:cursor-pointer hover:to-gray-100"
-                                            href={result.expand.category.slug + '/' + result.slug}
+                                            href={'/' + result.expand.category.slug + '/' + result.slug}
                                         >
                                             <p>
                                                 {result.name}
