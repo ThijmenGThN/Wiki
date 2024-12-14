@@ -53,7 +53,7 @@ export default function Search() {
                     />
                     <div className={classNames(
                         "flex flex-col gap-y-4 absolute w-full bg-white p-8 pt-4 mt-2 ring-1 shadow-sm ring-inset ring-gray-300 rounded-md",
-                        results.length === 0 && 'hidden'
+                        results.length === 0 ? 'hidden' : ''
                     )}>
                         <p className="font-semibold">Results</p>
                         <ul className="grid gap-4 md:grid-cols-2">

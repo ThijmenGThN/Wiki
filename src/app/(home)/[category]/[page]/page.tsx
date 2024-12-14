@@ -11,9 +11,9 @@ import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid"
 
 export const dynamic = 'force-dynamic'
 
-export default async function Page({ params }: { params: { category: string, page: string } }) {
+export default async function Page({ params }: { params: Promise<{ page: string, category: string }> }) {
 
-    const { page: pageSlug, category: categorySlug } = (await params)
+    const { page: pageSlug, category: categorySlug } = await params
 
     const payload = await getPayload({ config })
 
