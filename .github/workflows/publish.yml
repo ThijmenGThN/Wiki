@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.GH_PAT }}
 
       - name: Build Docker image
-        run: docker build -t ghcr.io/${{ github.repository }}/wiki:latest .
+        run: docker build -t ghcr.io/${{ github.repository }}:latest .
 
       - name: Push Docker image to GitHub Container Registry
-        run: docker push ghcr.io/${{ github.repository }}/wiki:latest
+        run: docker push ghcr.io/${{ github.repository }}:latest
