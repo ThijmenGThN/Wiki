@@ -17,11 +17,11 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ThijmenGThN
+          password: ${{ secrets.GH_PAT }}
 
       - name: Build Docker image
-        run: docker build -t ghcr.io/${{ github.repository }}/my-app:latest .
+        run: docker build -t ghcr.io/${{ github.repository }}/wiki:latest .
 
       - name: Push Docker image to GitHub Container Registry
-        run: docker push ghcr.io/${{ github.repository }}/my-app:latest
+        run: docker push ghcr.io/${{ github.repository }}/wiki:latest
