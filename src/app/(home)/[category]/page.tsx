@@ -4,7 +4,7 @@ import config from '@payload-config'
 
 import Search from "@/components/Search"
 import Header from "@/components/Header"
-import StarProject from "@/components/StarProject"
+import Toolbar from "@/components/Toolbar"
 
 import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid"
 
@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { category: string } })
 
             <Search />
 
-            <StarProject />
+            <Toolbar />
 
             <div className="flex flex-col gap-y-4 mt-16 mx-8 sm:mx-16">
                 <b>

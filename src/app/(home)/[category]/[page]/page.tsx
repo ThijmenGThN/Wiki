@@ -5,7 +5,7 @@ import { RichText } from '@payloadcms/richtext-lexical/react'
 
 import Search from "@/components/Search"
 import Header from "@/components/Header"
-import StarProject from "@/components/StarProject"
+import Toolbar from "@/components/Toolbar"
 
 import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid"
 
@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { category: string, pag
 
             <Search />
 
-            <StarProject />
+            <Toolbar />
 
             <div className="flex flex-col gap-y-6 mt-16 mx-8 sm:mx-16">
                 <div className="flex flex-col gap-y-4 mx-8">

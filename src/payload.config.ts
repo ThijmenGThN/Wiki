@@ -10,6 +10,7 @@ import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Pages } from './collections/Pages'
 import { Categories } from './collections/Categories'
+import { Settings } from './collections/Settings'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -25,6 +26,9 @@ export default buildConfig({
     Users, 
     Pages,
     Categories
+  ],
+  globals: [
+    Settings
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
