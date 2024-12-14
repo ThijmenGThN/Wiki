@@ -13,6 +13,9 @@ export const Categories: CollectionConfig = {
   slug: 'categories',
   admin: {
     useAsTitle: 'title',
+    livePreview: {
+      url: 'http://localhost:3000',
+    },
   },
   hooks: {
     beforeChange: [beforeChangeHook]

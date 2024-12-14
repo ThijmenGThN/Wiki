@@ -13,6 +13,9 @@ export const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
     useAsTitle: 'title',
+    livePreview: {
+      url: ({data}) => `http://localhost:3000/${data.category.slug}/${data.slug}`
+    }
   },
   hooks: {
     beforeChange: [beforeChangeHook]

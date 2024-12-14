@@ -5,6 +5,7 @@ import { RichText } from '@payloadcms/richtext-lexical/react'
 
 import Search from "@/components/Search"
 import Header from "@/components/Header"
+import StarProject from "@/components/StarProject"
 
 import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid"
 
@@ -15,6 +16,7 @@ export default async function Page({ params }: { params: { category: string, pag
     const { page: pageSlug, category: categorySlug } = (await params)
 
     const payload = await getPayload({ config })
+
     const page = await payload.find({ collection: "pages", limit: 1, where: { slug: { equals: pageSlug } } })
 
     return (
@@ -22,6 +24,8 @@ export default async function Page({ params }: { params: { category: string, pag
             <Header breadcrumb={page.docs[0].title} />
 
             <Search />
+
+            <StarProject />
 
             <div className="flex flex-col gap-y-6 mt-16 mx-8 sm:mx-16">
                 <div className="flex flex-col gap-y-4 mx-8">

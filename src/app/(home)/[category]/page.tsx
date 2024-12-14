@@ -4,6 +4,7 @@ import config from '@payload-config'
 
 import Search from "@/components/Search"
 import Header from "@/components/Header"
+import StarProject from "@/components/StarProject"
 
 import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid"
 
@@ -23,6 +24,8 @@ export default async function Page({ params }: { params: { category: string } })
             <Header breadcrumb={category.docs[0].title} />
 
             <Search />
+
+            <StarProject />
 
             <div className="flex flex-col gap-y-4 mt-16 mx-8 sm:mx-16">
                 <b>

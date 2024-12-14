@@ -4,20 +4,23 @@ import config from '@payload-config'
 
 import Search from "@/components/Search"
 import Header from "@/components/Header"
+import StarProject from "@/components/StarProject"
 
 export const dynamic = 'force-dynamic'
 
 export default async function Page() {
 
     const payload = await getPayload({ config })
-    
-    const categories = await payload.find({collection: "categories", pagination: false}) 
+
+    const categories = await payload.find({ collection: "categories", pagination: false })
 
     return (
         <>
             <Header />
 
             <Search />
+
+            <StarProject />
 
             <div className="flex flex-col gap-y-4 mt-16 mx-8 sm:mx-16">
                 <b>
