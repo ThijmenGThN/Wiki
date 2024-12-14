@@ -28,7 +28,7 @@ export default async function Page() {
                 </b>
                 <ul className="grid gap-4 md:grid-cols-2">
                     {
-                        categories.docs.map((category: any) => (
+                        categories.docs.map(category => (
                             <li key={category.id}>
                                 <Link className="flex flex-col gap-y-2 rounded bg-gradient-to-tr from-gray-50 to-white border p-4 shadow-sm hover:cursor-pointer hover:to-gray-100"
                                     href={category.slug ?? '/'}

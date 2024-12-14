@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid"
+import { Page } from '@/payload-types'
 
 import { classNames } from "@/helpers/tailwind"
 
@@ -56,11 +57,11 @@ export default function Search() {
                     )}>
                         <p className="font-semibold">Results</p>
                         <ul className="grid gap-4 md:grid-cols-2">
-                            {results.map((result: any) => (
+                            {results.map((result: Page) => (
                                 <li key={result.id}>
                                     <Link
                                         className="flex flex-col gap-y-2 rounded bg-gradient-to-tr from-gray-50 to-white border p-4 shadow-sm hover:cursor-pointer hover:to-gray-100"
-                                        href={`/${result.category.slug}/${result.slug}`}
+                                        href={`/${typeof result.category === 'object' ? result.category.slug : ''}/${result.slug}`}
                                     >
                                         <p>{result.title}</p>
                                         <p className="text-xs text-neutral">{result.description}</p>
