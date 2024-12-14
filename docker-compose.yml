@@ -1,47 +1,43 @@
-version: "3"
+version: '3'
 
 services:
-
-  # ┏━ NextJS | A framework to build web apps.
-  next:
-    image: node:20-alpine
-    command: >
-      sh -c 'npm ci && if [ "$PRODUCTION" == "true" ]; 
-        then npm run build && npm start
-        else npm run dev
-      fi'
-    container_name: next
-    restart: unless-stopped
-    working_dir: /app
-    depends_on: [ pocketbase ]
+  payload:
+    image: node:18-alpine
+    ports:
+      - '3000:3000'
     volumes:
-      - next_build:/app/.next
-      - ./node_modules:/app/node_modules
-      - ./:/app
+      - .:/home/node/app
+      - node_modules:/home/node/app/node_modules
+    working_dir: /home/node/app/
+    command: sh -c "corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm dev"
+    depends_on:
+      - mongo
+      # - postgres
+    env_file:
+      - .env
 
-  # ┏━ Pocketbase | An inclusive BAAS database provider.
-  pocketbase:
-    image: ghcr.io/muchobien/pocketbase:0.20
-    container_name: pocketbase
-    restart: unless-stopped
-    attach: false
+  # Ensure your DATABASE_URI uses 'mongo' as the hostname ie. mongodb://mongo/my-db-name
+  mongo:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    command:
+      - --storageEngine=wiredTiger
     volumes:
-      - pocketbase_data:/pb_data
-      - ./src/backend/types.d.ts:/pb_data/types.d.ts
-      - ./src/backend/migrations:/pb_migrations
-      - ./src/backend/hooks:/pb_hooks
+      - data:/data/db
+    logging:
+      driver: none
 
-  # ┏━ Nginx | Ensures same origin for both services.
-  nginx:
-    image: nginx:1.25
-    depends_on: [ next, pocketbase ]
-    container_name: router
-    restart: unless-stopped
-    volumes: [ "./src/backend/routes:/etc/nginx/conf.d" ]
-    ports: [ "${PORT:-3000}:3000" ]
-    attach: false
+  # Uncomment the following to use postgres
+  # postgres:
+  #   restart: always
+  #   image: postgres:latest
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
 
 volumes:
-  next_build:
-  next_modules:
-  pocketbase_data:
+  data:
+  # pgdata:
+  node_modules:

@@ -3,8 +3,6 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
-import pb from "@/helpers/pocketbase"
-
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid"
 import { classNames } from "@/helpers/tailwind"
 
@@ -16,17 +14,19 @@ export default function Search() {
         if (searchTerm.length < 3) setResults([])
         else {
             var delay = setTimeout(async () => {
-                let records = await pb.collection('posts').getFullList({
-                    filter: `name?~"${searchTerm}"`,
-                    expand: 'category',
-                    batch: 4
-                })
+                let records: any = [] 
+                // await pb.collection('posts').getFullList({
+                    // filter: `name?~"${searchTerm}"`,
+                    // expand: 'category',
+                    // batch: 4
+                // })
 
-                if (records.length == 0) records = await pb.collection('posts').getFullList({
-                    filter: `description?~"${searchTerm}"`,
-                    expand: 'category',
-                    batch: 4
-                })
+                if (records.length == 0) records = [] 
+                // await pb.collection('posts').getFullList({
+                    // filter: `description?~"${searchTerm}"`,
+                    // expand: 'category',
+                    // batch: 4
+                // })
 
                 console.log(records)
 

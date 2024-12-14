@@ -1,20 +1,40 @@
 {
-    "files.exclude": {
-        "src/backend/routes/nginx.conf": true,
-        "src/locales/i18n.ts": true,
-        "package-lock.json": true,
-        "postcss.config.js": true,
-        ".eslintrc.json": true,
-        "next-env.d.ts": true,
-        "node_modules": true,
-        "**/.gitkeep": true,
-        "LICENSE.md": true,
-        "debug.log": true,
-        ".vscode": true,
-        ".next": true
-    },
-    "i18n-ally.keystyle": "nested",
-    "i18n-ally.localesPaths": [
-        "src/locales"
-    ]
+  "npm.packageManager": "pnpm",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "editor.formatOnSaveMode": "file",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[javascript][typescript][typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  }
 }
