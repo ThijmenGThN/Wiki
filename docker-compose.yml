@@ -1,9 +1,11 @@
 services:
 
   app: 
-    build: .
+    image: ghcr.io/thijmengthn/wiki:latest
     restart: unless-stopped
     volumes:
       - ./database:/app/database
     ports:
       - 3000:3000
+    environment:
+      - PAYLOAD_SECRET=073c61eb3cb96b4c455b3242
