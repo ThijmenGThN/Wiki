@@ -12,13 +12,14 @@ import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid"
 
 export const dynamic = 'force-dynamic'
 
-export default async function Page({ params }: { params: Promise<{ page: string, category: string }> }) {
+export default async function Page({ params }: { params: Promise<{ page: string }> }) {
 
-    const { page: pageSlug, category: categorySlug } = await params
+    const { page: pageSlug } = await params
 
     const payload = await getPayload({ config })
 
     const page = await payload.find({ collection: "pages", limit: 1, where: { slug: { equals: pageSlug } } })
+    const category = page.docs[0]?.category as { slug: string }
 
     return (
         <>
@@ -42,7 +43,7 @@ export default async function Page({ params }: { params: Promise<{ page: string,
                 </div>
 
                 <div className="mx-auto mt-16">
-                    <Link href={'/' + categorySlug}>
+                    <Link href={'/' + (category.slug ?? "")}>
                         <button className="bg-black rounded-full p-3 text-white items-center hover:scale-105 transition-transform duration-200">
                             <ArrowUturnLeftIcon className="text-white h-5 w-5" />
                         </button>

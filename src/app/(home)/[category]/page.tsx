@@ -13,15 +13,15 @@ export const dynamic = 'force-dynamic'
 export default async function Page({ params }: { params: Promise<{ page: string, category: string }> }) {
 
     const { category: categorySlug } = await params
-    
+
     const payload = await getPayload({ config })
 
-    const category = await payload.find({ collection: "categories", limit: 1, where: { slug: { equals: categorySlug } } })
-    const pages = await payload.find({ collection: "pages", pagination: false })
+    const pages = await payload.find({ collection: "pages", pagination: false, where: { "category.slug": { equals: categorySlug } } })
+    const category = pages.docs[0]?.category as { title: string, slug: string }
 
     return (
         <>
-            <Header breadcrumb={category?.docs[0]?.title} />
+            <Header breadcrumb={category?.title ?? categorySlug} />
 
             <Search />
 
@@ -36,7 +36,7 @@ export default async function Page({ params }: { params: Promise<{ page: string,
                         pages.docs.map(page => (
                             <li key={page.id}>
                                 <Link className="flex flex-col gap-y-2 rounded bg-gradient-to-tr from-gray-50 to-white border p-4 shadow-sm hover:cursor-pointer hover:to-gray-100"
-                                    href={category?.docs[0]?.slug + '/' + page?.slug}
+                                    href={categorySlug + '/' + page?.slug}
                                 >
                                     <p>
                                         {page?.title}
