@@ -13,9 +13,6 @@ export const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
     useAsTitle: 'title',
-    livePreview: {
-      url: ({data}) => `http://localhost:3000/${data.category.slug}/${data.slug}`
-    }
   },
   hooks: {
     beforeChange: [beforeChangeHook]
@@ -36,8 +33,8 @@ export const Pages: CollectionConfig = {
       required: true,
     },
     {
-      name: 'description',
-      type: 'textarea',
+      name: 'subtitle',
+      type: 'text',
       required: true,
     },
     {
@@ -47,8 +44,8 @@ export const Pages: CollectionConfig = {
       required: true,
     },
     {
-      name: 'content',
-      type: 'richText',
+      name: 'markdown',
+      type: 'textarea',
       required: true,
     },
   ],

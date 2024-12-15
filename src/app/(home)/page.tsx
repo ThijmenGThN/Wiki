@@ -37,7 +37,7 @@ export default async function Page() {
                                         {category?.title}
                                     </p>
                                     <p className="text-xs text-neutral">
-                                        {category?.description}
+                                        {category?.subtitle}
                                     </p>
                                 </Link>
                             </li>

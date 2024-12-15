@@ -45,17 +45,13 @@ Docker and it's compose plugin are required, below is a matrix on how to install
 |MacOS|[docs.docker.com/.../mac-install](https://docs.docker.com/desktop/install/mac-install/)
 |Windows|[docs.docker.com/.../windows-install](https://docs.docker.com/desktop/install/windows-install/)
 
+### Creating the compose file
 
-### Starting it up
+Create a `docker-compose.yml` file in your project directory with the following content:
 
-To start this wiki, follow these steps:
-
-1. **Create a `docker-compose.yml` file** in the root directory of your project with the following content:
-
-```yml
+```yaml
 services:
-
-  wiki: 
+  wiki:
     image: ghcr.io/thijmengthn/wiki:latest
     container_name: wiki
     restart: unless-stopped
@@ -64,19 +60,23 @@ services:
     ports:
       - 3000:3000
     environment:
-      - PAYLOAD_SECRET=073c61eb3cb96b4c455b3242
+      - PAYLOAD_SECRET=your_secret_key_here
 ```
 
-2. **Run the following command** to start the wiki:
+Replace `your_secret_key_here` with a secure secret key of your choice.
 
-    ```sh
-    docker compose up -d
-    ```
+### Starting the Wiki
 
-This will start the wiki in detached mode. You can access it by navigating to `http://localhost:3000` in your web browser.
+Run the following command to start the service:
+
+```sh
+docker compose up -d
+```
+
+You can now access the wiki by navigating to [localhost:3000](http://localhost:3000) in your browser.
 
 
 
-## ✨ This wiki is for everyone!
+## ✨ A wiki for everyone!
 
 Whether you need help, want to pitch in, or found a bug that needs fixing, just [open an issue](https://github.com/ThijmenGThN/swaparr/issues). We're all ears and ready to collaborate with you!

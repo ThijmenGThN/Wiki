@@ -42,7 +42,7 @@ export default async function Page({ params }: { params: Promise<{ page: string,
                                         {page?.title}
                                     </p>
                                     <p className="text-xs text-neutral">
-                                        {page?.description}
+                                        {page?.subtitle}
                                     </p>
                                 </Link>
                             </li>

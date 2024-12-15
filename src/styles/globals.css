@@ -1,14 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.payload-richtext code {
-    background: black;
-    color: white;
-    border-radius: .5rem;
-    padding: 1rem 1.25rem;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    user-select: all; /* Makes the content copyable */
-}

@@ -88,23 +88,9 @@ export interface Page {
   id: number;
   slug?: string | null;
   title: string;
-  description: string;
+  subtitle: string;
   category: number | Category;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
+  markdown: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -116,7 +102,7 @@ export interface Category {
   id: number;
   slug?: string | null;
   title: string;
-  description: string;
+  subtitle: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -203,9 +189,9 @@ export interface UsersSelect<T extends boolean = true> {
 export interface PagesSelect<T extends boolean = true> {
   slug?: T;
   title?: T;
-  description?: T;
+  subtitle?: T;
   category?: T;
-  content?: T;
+  markdown?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -216,7 +202,7 @@ export interface PagesSelect<T extends boolean = true> {
 export interface CategoriesSelect<T extends boolean = true> {
   slug?: T;
   title?: T;
-  description?: T;
+  subtitle?: T;
   updatedAt?: T;
   createdAt?: T;
 }

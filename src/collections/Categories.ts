@@ -13,9 +13,6 @@ export const Categories: CollectionConfig = {
   slug: 'categories',
   admin: {
     useAsTitle: 'title',
-    livePreview: {
-      url: 'http://localhost:3000',
-    },
   },
   hooks: {
     beforeChange: [beforeChangeHook]
@@ -36,8 +33,8 @@ export const Categories: CollectionConfig = {
       required: true,
     },
     {
-      name: 'description',
-      type: 'textarea',
+      name: 'subtitle',
+      type: 'text',
       required: true,
     },
   ],

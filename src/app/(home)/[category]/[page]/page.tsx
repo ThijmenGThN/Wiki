@@ -1,7 +1,8 @@
 import Link from "next/link"
+import remarkGfm from 'remark-gfm'
 import { getPayload } from 'payload'
 import config from '@payload-config'
-import { RichText } from '@payloadcms/richtext-lexical/react'
+import Markdown from 'react-markdown'
 
 import Search from "@/components/Search"
 import Header from "@/components/Header"
@@ -30,12 +31,14 @@ export default async function Page({ params }: { params: Promise<{ page: string,
             <div className="flex flex-col gap-y-6 mt-16 mx-8 sm:mx-16">
                 <div className="flex flex-col gap-y-4 mx-8">
                     <p className="text-sm">
-                        {page?.docs[0]?.description}
+                        {page?.docs[0]?.subtitle}
                     </p>
                 </div>
 
                 <div className="rounded border shadow-sm p-8 bg-gradient-to-tr from-gray-50 to-white">
-                    <RichText data={page?.docs[0]?.content} />
+                    <Markdown remarkPlugins={[remarkGfm]} className='prose min-w-full'>
+                        {page?.docs[0]?.markdown}
+                    </Markdown>
                 </div>
 
                 <div className="mx-auto mt-16">
