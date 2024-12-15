@@ -3,6 +3,8 @@
 
 An open-source wiki built ontop of [Payload](https://payloadcms.com), easily deploy this yourself via the instructions below.
 
+> **Demo** - Interested to see it in action? Visit [wiki.thijmenheuvelink.nl](https://wiki.thijmenheuvelink.nl) for a live demo.
+
 <p align="center">
   <img src="https://i.imgur.com/MuuSWcV.png">
 </p>

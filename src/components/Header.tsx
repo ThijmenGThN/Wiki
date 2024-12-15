@@ -30,7 +30,7 @@ export default async function Header({ breadcrumb }: { breadcrumb?: string }) {
             </div>
 
             <p className="text-sm">
-                {settings.about}
+                {settings.subtitle}
             </p>
         </div>
     )

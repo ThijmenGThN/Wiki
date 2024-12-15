@@ -11,7 +11,7 @@ export const Settings: GlobalConfig = {
       defaultValue: "Wiki"
     },
     {
-      name: "about",
+      name: "subtitle",
       type: "text",
       required: true,
       defaultValue: "A customizable knowledge base."

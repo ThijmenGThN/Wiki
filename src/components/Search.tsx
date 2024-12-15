@@ -18,7 +18,7 @@ export default function Search() {
             const delay = setTimeout(async () => {
                 const query = new URLSearchParams({
                     'where[or][0][title][like]': searchTerm,
-                    'where[or][1][description][like]': searchTerm,
+                    'where[or][1][subtitle][like]': searchTerm,
                     'limit': '4',
                 })
 
@@ -64,7 +64,7 @@ export default function Search() {
                                         href={`/${typeof result.category === 'object' ? result.category.slug : ''}/${result.slug}`}
                                     >
                                         <p>{result.title}</p>
-                                        <p className="text-xs text-neutral">{result.description}</p>
+                                        <p className="text-xs text-neutral">{result.subtitle}</p>
                                     </Link>
                                 </li>
                             ))}
