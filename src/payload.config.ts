@@ -11,6 +11,7 @@ import { Users } from './collections/Users'
 import { Pages } from './collections/Pages'
 import { Categories } from './collections/Categories'
 import { Settings } from './collections/Settings'
+import { migrations } from './migrations'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -23,7 +24,7 @@ export default buildConfig({
     },
   },
   collections: [
-    Users, 
+    Users,
     Pages,
     Categories
   ],
@@ -36,8 +37,9 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: sqliteAdapter({
+    prodMigrations: migrations,
     client: {
-      url: process.env.DATABASE_URI || '',
+      url: 'file:./database/wiki.db',
     },
   }),
   sharp,

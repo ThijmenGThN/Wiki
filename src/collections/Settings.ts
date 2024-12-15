@@ -4,28 +4,28 @@ export const Settings: GlobalConfig = {
   slug: 'settings',
   admin: {
     livePreview: {
-        url: 'http://localhost:3000',
+      url: 'http://localhost:3000',
     },
   },
   fields: [
     {
-        name: "sitename",
-        label: "Site name",
-        type: "text",
-        required: true,
-        defaultValue: "Wiki"
+      name: "sitename",
+      label: "Site name",
+      type: "text",
+      required: true,
+      defaultValue: "Wiki"
     },
     {
-        name: "motto",
-        type: "text",
-        required: true,
-        defaultValue: "Maintained by Thijmen Heuvelink"
+      name: "about",
+      type: "text",
+      required: true,
+      defaultValue: "A customizable knowledge base."
     },
     {
-        name: "disclaimer",
-        type: "text",
-        required: true,
-        defaultValue: "This knowledge base serves as a valuable tool to simplify installations troubleshoot common problems and enhance the overall developer experience all rights reserved."
-    },
+      name: "disclaimer",
+      type: "text",
+      required: true,
+      defaultValue: "This platform provides general information for reference purposes. Content may vary based on customization. All rights reserved."
+    }
   ],
 }

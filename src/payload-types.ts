@@ -259,7 +259,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 export interface Setting {
   id: number;
   sitename: string;
-  motto: string;
+  about: string;
   disclaimer: string;
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -270,7 +270,7 @@ export interface Setting {
  */
 export interface SettingsSelect<T extends boolean = true> {
   sitename?: T;
-  motto?: T;
+  about?: T;
   disclaimer?: T;
   updatedAt?: T;
   createdAt?: T;

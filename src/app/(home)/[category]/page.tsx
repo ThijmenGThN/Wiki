@@ -21,7 +21,7 @@ export default async function Page({ params }: { params: Promise<{ page: string,
 
     return (
         <>
-            <Header breadcrumb={category.docs[0].title} />
+            <Header breadcrumb={category?.docs[0]?.title} />
 
             <Search />
 
@@ -36,13 +36,13 @@ export default async function Page({ params }: { params: Promise<{ page: string,
                         pages.docs.map(page => (
                             <li key={page.id}>
                                 <Link className="flex flex-col gap-y-2 rounded bg-gradient-to-tr from-gray-50 to-white border p-4 shadow-sm hover:cursor-pointer hover:to-gray-100"
-                                    href={category.docs[0].slug + '/' + page.slug}
+                                    href={category?.docs[0]?.slug + '/' + page?.slug}
                                 >
                                     <p>
-                                        {page.title}
+                                        {page?.title}
                                     </p>
                                     <p className="text-xs text-neutral">
-                                        {page.description}
+                                        {page?.description}
                                     </p>
                                 </Link>
                             </li>

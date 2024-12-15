@@ -21,7 +21,7 @@ export default async function Page({ params }: { params: Promise<{ page: string,
 
     return (
         <>
-            <Header breadcrumb={page.docs[0].title} />
+            <Header breadcrumb={page?.docs[0]?.title} />
 
             <Search />
 
@@ -30,12 +30,12 @@ export default async function Page({ params }: { params: Promise<{ page: string,
             <div className="flex flex-col gap-y-6 mt-16 mx-8 sm:mx-16">
                 <div className="flex flex-col gap-y-4 mx-8">
                     <p className="text-sm">
-                        {page.docs[0].description}
+                        {page?.docs[0]?.description}
                     </p>
                 </div>
 
                 <div className="rounded border shadow-sm p-8 bg-gradient-to-tr from-gray-50 to-white">
-                    <RichText data={page.docs[0].content} />
+                    <RichText data={page?.docs[0]?.content} />
                 </div>
 
                 <div className="mx-auto mt-16">
