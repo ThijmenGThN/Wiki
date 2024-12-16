@@ -14,6 +14,9 @@ export const Categories: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
   },
+  access: {
+    read: () => true,
+  },
   hooks: {
     beforeChange: [beforeChangeHook]
   },

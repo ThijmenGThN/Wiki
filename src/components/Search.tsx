@@ -19,7 +19,7 @@ export default function Search() {
                 const query = new URLSearchParams({
                     'where[or][0][title][like]': searchTerm,
                     'where[or][1][subtitle][like]': searchTerm,
-                    'limit': '4',
+                    'limit': '4'
                 })
 
                 try {
@@ -27,8 +27,8 @@ export default function Search() {
                     if (!response.ok) {
                         throw new Error('Network response was not ok')
                     }
-                    const data = await response.json()
-                    setResults(data.docs)
+                    const { docs: pages } = await response.json()
+                    setResults(pages)
                 } catch (error) {
                     console.error('Error fetching data:', error)
                 }

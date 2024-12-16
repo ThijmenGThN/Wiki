@@ -14,6 +14,9 @@ export const Pages: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
   },
+  access: {
+    read: () => true,
+  },
   hooks: {
     beforeChange: [beforeChangeHook]
   },
